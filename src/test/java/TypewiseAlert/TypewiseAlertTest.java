@@ -28,13 +28,13 @@ public class TypewiseAlertTest {
 	@Test
     public void assertRaiseAlert()
     {
-      assertTrue(AlertTarget.raiseAlert(BreachType.TOO_HIGH));
-      assertTrue(AlertTarget.raiseAlert(BreachType.TOO_LOW));
-      assertFalse(AlertTarget.raiseAlert(BreachType.NORMAL));
+      assertTrue(EnumAlert.raiseAlert(EnumBreachType.TOO_HIGH));
+      assertTrue(EnumAlert.raiseAlert(EnumBreachType.TOO_LOW));
+      assertFalse(EnumAlert.raiseAlert(EnumBreachType.NORMAL));
 }
 	
-	public void assertController(BreachType breachType) {
-		AlertTarget.sendToController(breachType);
+	public void assertController(EnumBreachType breachType) {
+		EnumAlert.sendToController(breachType);
 		assertTrue(AlertMessage.toString().contains(breachType.toString()));
 		AlertMessage.reset();
 	}
@@ -42,14 +42,14 @@ public class TypewiseAlertTest {
 	
 	@Test
 	public void assertSendController() {
-		assertController(BreachType.TOO_HIGH);
-		assertController(BreachType.TOO_LOW);
-		assertController(BreachType.NORMAL);	
+		assertController(EnumBreachType.TOO_HIGH);
+		assertController(EnumBreachType.TOO_LOW);
+		assertController(EnumBreachType.NORMAL);	
 	}
 	
 	
-	public void assertEmailcontent(BreachType breachType) {
-		AlertTarget.sendToEmail(breachType);
+	public void assertEmailcontent(EnumBreachType breachType) {
+		EnumAlert.sendToEmail(breachType);
 		assertTrue(AlertMessage.toString().contains(breachType.getMessage()));
 		AlertMessage.reset();
 	}
@@ -57,7 +57,7 @@ public class TypewiseAlertTest {
 	@Test
 	
 	public void assertSendEmail() {
-		assertEmailcontent(BreachType.TOO_HIGH);
-		assertEmailcontent(BreachType.TOO_LOW);
+		assertEmailcontent(EnumBreachType.TOO_HIGH);
+		assertEmailcontent(EnumBreachType.TOO_LOW);
 	}
 }
