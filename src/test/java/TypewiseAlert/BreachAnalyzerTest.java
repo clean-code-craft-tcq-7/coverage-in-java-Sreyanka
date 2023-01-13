@@ -7,9 +7,9 @@ import org.junit.Test;
 
 public class BreachAnalyzerTest {
    
-	public static String assertBreachAnalyzerMessage(CoolingType coolingType, double temperatureInC) {
+	public static String assertBreachAnalyzerMessage(EnumCoolingType coolingType, double temperatureInC) {
 		BreachAnalyzer.classifyTemperatureBreach(coolingType,temperatureInC);
-		BreachType breachType=BreachAnalyzer.inferBreach(temperatureInC, coolingType.getLowerLimit(), coolingType.getUpperLimit());
+		EnumBreachType breachType=BreachAnalyzer.inferBreach(temperatureInC, coolingType.getLowerLimit(), coolingType.getUpperLimit());
 		return breachType.getMessage();
 		
 	}
@@ -17,11 +17,11 @@ public class BreachAnalyzerTest {
 	 @Test
 	    public void assertBreachTester()
 	    {
-	      assertTrue(assertBreachAnalyzerMessage(CoolingType.PASSIVE_COOLING, 23) == BreachType.NORMAL.getMessage());
-	      assertTrue(assertBreachAnalyzerMessage(CoolingType.HI_ACTIVE_COOLING, 46) == BreachType.TOO_HIGH.getMessage());
-	      assertTrue(assertBreachAnalyzerMessage(CoolingType.MED_ACTIVE_COOLING, 42) == BreachType.TOO_HIGH.getMessage());
-	      assertTrue(assertBreachAnalyzerMessage(CoolingType.HI_ACTIVE_COOLING, -10) == BreachType.TOO_LOW.getMessage());
-	      assertFalse(assertBreachAnalyzerMessage(CoolingType.HI_ACTIVE_COOLING, 41) == BreachType.TOO_HIGH.getMessage());
+	      assertTrue(assertBreachAnalyzerMessage(EnumCoolingType.PASSIVE_COOLING, 23) == EnumBreachType.NORMAL.getMessage());
+	      assertTrue(assertBreachAnalyzerMessage(EnumCoolingType.HI_ACTIVE_COOLING, 46) == EnumBreachType.TOO_HIGH.getMessage());
+	      assertTrue(assertBreachAnalyzerMessage(EnumCoolingType.MED_ACTIVE_COOLING, 42) == EnumBreachType.TOO_HIGH.getMessage());
+	      assertTrue(assertBreachAnalyzerMessage(EnumCoolingType.HI_ACTIVE_COOLING, -10) == EnumBreachType.TOO_LOW.getMessage());
+	      assertFalse(assertBreachAnalyzerMessage(EnumCoolingType.HI_ACTIVE_COOLING, 41) == EnumBreachType.TOO_HIGH.getMessage());
 	   
 }
 }
