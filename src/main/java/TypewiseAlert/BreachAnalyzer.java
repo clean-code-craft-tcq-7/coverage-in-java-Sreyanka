@@ -16,7 +16,7 @@ public class BreachAnalyzer {
 	    return result;
 	}
 
-	  public static EnumBreachType classifyTemperatureBreach( CoolingType coolingType, double temperatureInC) {
+	  public static EnumBreachType classifyTemperatureBreach( EnumCoolingType coolingType, double temperatureInC) {
 	    return inferBreach(temperatureInC, coolingType.getLowerLimit(), coolingType.getUpperLimit());
 	  }
 }
