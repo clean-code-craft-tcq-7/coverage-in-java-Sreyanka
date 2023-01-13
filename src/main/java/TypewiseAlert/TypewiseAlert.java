@@ -6,7 +6,7 @@ public class TypewiseAlert
 
 		EnumBreachType breachType = BreachAnalyzer.classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
  
-		if(alertTarget==AlertTarget.TO_CONTROLLER) {
+		if(alertTarget==EnumAlert.TO_CONTROLLER) {
 			EnumAlert.sendToController(breachType);
 		}else {
 			EnumAlert.sendToEmail(breachType);
