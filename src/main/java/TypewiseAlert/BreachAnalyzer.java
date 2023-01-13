@@ -2,21 +2,21 @@ package TypewiseAlert;
 
 public class BreachAnalyzer {
 	
-	public static BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
-		BreachType result;
+	public static EnumBreachType inferBreach(double value, double lowerLimit, double upperLimit) {
+		EnumBreachType result;
 	    if(value < lowerLimit) {
-	     result=BreachType.TOO_LOW;
+	     result=EnumBreachType.TOO_LOW;
 	    }
 	    else if(value > upperLimit) {
-	       result=BreachType.TOO_HIGH;
+	       result=EnumBreachType.TOO_HIGH;
 	    }
 	    else {
-	     result=BreachType.NORMAL;
+	     result=EnumBreachType.NORMAL;
 	  }
 	    return result;
 	}
 
-	  public static BreachType classifyTemperatureBreach( CoolingType coolingType, double temperatureInC) {
+	  public static EnumBreachType classifyTemperatureBreach( CoolingType coolingType, double temperatureInC) {
 	    return inferBreach(temperatureInC, coolingType.getLowerLimit(), coolingType.getUpperLimit());
 	  }
 }
